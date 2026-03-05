@@ -1,0 +1,67 @@
+<ion-content class="login-content">
+  <div class="login-background">
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+  </div>
+
+  <div class="login-container">
+    <!-- Logo / Brand -->
+    <div class="brand-section">
+      <div class="brand-icon">
+        <ion-icon name="wallet-outline"></ion-icon>
+      </div>
+      <h1 class="brand-title">MONEYWISE</h1>
+      <p class="brand-subtitle">Controla tus finanzas con inteligencia</p>
+    </div>
+
+    <!-- Form -->
+    <div class="form-card">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <div class="input-group">
+          <div class="input-wrapper">
+            <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+            <ion-input
+              type="email"
+              formControlName="email"
+              placeholder="correo@ejemplo.com"
+              class="custom-input">
+            </ion-input>
+          </div>
+          <label class="input-label">Email</label>
+        </div>
+
+        <div class="input-group">
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+            <ion-input
+              type="password"
+              formControlName="password"
+              placeholder="••••••••"
+              class="custom-input">
+            </ion-input>
+          </div>
+          <label class="input-label">Contraseña</label>
+        </div>
+
+
+
+        <button type="submit" class="btn-primary">
+          <ion-icon name="log-in-outline"></ion-icon>
+          Iniciar Sesión
+        </button>
+
+        <div class="divider">
+          <span>¿No tienes cuenta?</span>
+        </div>
+
+        <button type="button" class="btn-secondary" routerLink="/auth/register">
+          <ion-icon name="person-add-outline"></ion-icon>
+          Crear cuenta gratis
+        </button>
+
+      </form>
+    </div>
+  </div>
+</ion-content>
