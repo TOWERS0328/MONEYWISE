@@ -27,7 +27,7 @@ export class LoginPage {
     const { email, password } = this.loginForm.value;
     const success = await this.auth.login(email, password);
     if(success) {
-      this.router.navigate(['/tabs/dashboard']);
+      this.router.navigate(['/tabs/dashboard'], { replaceUrl: true });
     } else {
       alert('Email o contraseña incorrectos');
     }

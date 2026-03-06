@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Auth } from '../core/services/auth.service';
+import { User } from '../core/model/user.model';
 
 @Component({
   selector: 'app-tabs',
@@ -6,8 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss'],
   standalone: false,
 })
-export class TabsPage {
+export class TabsPage implements OnInit {
 
-  constructor() {}
+  userName: string = '';
+
+  constructor(private auth: Auth) {}
+
+  ngOnInit() {
+
+    this.auth.currentUser$.subscribe((user: User | null) => {
+      if (user) {
+        this.userName = user.nombre;
+      }
+
+    });
+
+  }
 
 }
