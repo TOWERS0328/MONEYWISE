@@ -1,0 +1,15 @@
+<ion-card [ngClass]="tipo">
+
+  <ion-card-header>
+    <ion-item lines="none">
+      <ion-icon slot="start" [name]="icono"></ion-icon>
+      <ion-label>{{ titulo }}</ion-label>
+
+      <ion-text class="monto">
+        {{ monto | currency:'USD':'symbol':'1.0-0' }}
+      </ion-text>
+
+    </ion-item>
+  </ion-card-header>
+
+</ion-card>

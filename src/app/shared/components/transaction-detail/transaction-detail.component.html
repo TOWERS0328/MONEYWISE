@@ -1,0 +1,77 @@
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-title>
+      {{ transaccion.descripcion || transaccion.categoria }}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-badge
+          [color]="transaccion.tipo === 'gasto' ? 'danger' : 'success'">
+          {{ transaccion.tipo }}
+        </ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-text>{{ transaccion.categoria }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Monto</ion-label>
+        <ion-text>${{ transaccion.monto }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-text>{{ transaccion.fecha | date }}</ion-text>
+      </ion-item>
+
+      <ion-item *ngIf="transaccion.descripcion">
+        <ion-label>Descripción</ion-label>
+        <ion-text>{{ transaccion.descripcion }}</ion-text>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- FOTO DEL COMPROBANTE -->
+    <div *ngIf="transaccion.comprobante" style="margin-top:16px">
+
+      <ion-img
+        [src]="transaccion.comprobante"
+        style="border-radius:10px">
+      </ion-img>
+
+    </div>
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col>
+          <ion-button expand="block"
+            color="primary"
+            (click)="onEdit.emit(transaccion)">
+            Editar
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="block"
+            color="danger"
+            (click)="onDelete.emit(transaccion)">
+            Eliminar
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+  </ion-card-content>
+
+</ion-card>

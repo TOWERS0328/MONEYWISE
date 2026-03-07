@@ -1,0 +1,17 @@
+<ion-item lines="none">
+
+  <ion-label>
+
+    <div class="header">
+      <span>{{ categoria }}</span>
+      <span>{{ monto | currency:'USD' }}</span>
+    </div>
+
+    <ion-progress-bar
+      [value]="porcentaje / 100"
+      [color]="color">
+    </ion-progress-bar>
+
+  </ion-label>
+
+</ion-item>

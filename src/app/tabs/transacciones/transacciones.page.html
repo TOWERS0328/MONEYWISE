@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Transacciones</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Barra de filtros -->
+  <app-filter-bar
+    (tipoChange)="filtrarTipo($event)"
+    (categoriaChange)="filtrarCategoria($event)"
+    (buscarChange)="buscar($event)">
+  </app-filter-bar>
+
+  <!-- Lista -->
+  <ng-container *ngIf="transaccionesFiltradas.length > 0; else sinDatos">
+
+    <app-transaction-item
+      *ngFor="let t of transaccionesFiltradas"
+      [transaccion]="t"
+      (itemClick)="verDetalle($event)">
+    </app-transaction-item>
+
+  </ng-container>
+
+  <ng-template #sinDatos>
+    <ion-text color="medium">
+      <p style="text-align:center; margin-top:20px;">
+        No hay transacciones
+      </p>
+    </ion-text>
+  </ng-template>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="nuevaTransaccion()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+  <!-- DETALLE DE TRANSACCION -->
+  <app-transaction-detail
+    *ngIf="transaccionSeleccionada"
+    [transaccion]="transaccionSeleccionada">
+  </app-transaction-detail>
+
+  
+
+</ion-content>

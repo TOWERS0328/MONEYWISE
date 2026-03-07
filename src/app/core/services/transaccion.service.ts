@@ -1,42 +1,53 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Transaccion } from '../model/transaccion.model';
+import { StorageService } from './storage.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+const STORAGE_KEY = 'transacciones';
+
+@Injectable({ providedIn: 'root' })
 export class TransaccionService {
+  private _transacciones = new BehaviorSubject<Transaccion[]>([]);
+  transacciones$ = this._transacciones.asObservable();
 
-  private transacciones: Transaccion[] = [];
+  constructor(private storageService: StorageService) {
+    this.cargarDesdeStorage();
+  }
 
-  constructor() {}
+  private async cargarDesdeStorage() {
+    const data = await this.storageService.get(STORAGE_KEY);
+    this._transacciones.next(data ?? []);
+  }
 
-  // Obtener todas
+  private async guardarEnStorage() {
+    await this.storageService.set(STORAGE_KEY, this._transacciones.value);
+  }
+
   getTransacciones(): Transaccion[] {
-    return this.transacciones;
+    return this._transacciones.value;
   }
 
-  // Agregar
-  agregarTransaccion(transaccion: Transaccion) {
-    this.transacciones.push(transaccion);
+  async agregarTransaccion(transaccion: Transaccion) {
+    const actual = this._transacciones.value;
+    this._transacciones.next([...actual, transaccion]);
+    await this.guardarEnStorage();
   }
 
-  // Eliminar
-  eliminarTransaccion(id: string) {
-    this.transacciones = this.transacciones.filter(t => t.id !== id);
+  async eliminarTransaccion(id: string) {
+    const filtradas = this._transacciones.value.filter(t => t.id !== id);
+    this._transacciones.next(filtradas);
+    await this.guardarEnStorage();
   }
 
-  // Obtener por id
   getTransaccionById(id: string): Transaccion | undefined {
-    return this.transacciones.find(t => t.id === id);
+    return this._transacciones.value.find(t => t.id === id);
   }
 
-  // Actualizar
-  actualizarTransaccion(transaccionActualizada: Transaccion) {
-    const index = this.transacciones.findIndex(t => t.id === transaccionActualizada.id);
-
-    if (index !== -1) {
-      this.transacciones[index] = transaccionActualizada;
-    }
+  async actualizarTransaccion(actualizada: Transaccion) {
+    const lista = this._transacciones.value.map(t =>
+      t.id === actualizada.id ? actualizada : t
+    );
+    this._transacciones.next(lista);
+    await this.guardarEnStorage();
   }
-
 }

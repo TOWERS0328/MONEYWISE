@@ -1,0 +1,44 @@
+<ion-item button (click)="handleClick()">
+
+  <!-- icono -->
+  <ion-avatar slot="start">
+    <ion-icon
+      [name]="transaccion.tipo === 'gasto' ? 'arrow-down-outline' : 'arrow-up-outline'"
+      [color]="transaccion.tipo === 'gasto' ? 'danger' : 'success'">
+    </ion-icon>
+  </ion-avatar>
+
+  <!-- informacion -->
+  <ion-label>
+
+    <h2>
+      {{ transaccion.descripcion || transaccion.categoria }}
+    </h2>
+
+    <p>
+      {{ transaccion.categoria }} • {{ transaccion.fecha | date }}
+    </p>
+
+  </ion-label>
+
+  <!-- miniatura comprobante -->
+  <ion-thumbnail
+    slot="end"
+    *ngIf="transaccion.comprobante">
+
+    <img
+      [src]="transaccion.comprobante"
+      alt="Comprobante de transacción">
+
+  </ion-thumbnail>
+
+  <!-- monto -->
+  <ion-badge
+    slot="end"
+    [color]="transaccion.tipo === 'gasto' ? 'danger' : 'success'">
+
+    {{ transaccion.tipo === 'gasto' ? '-' : '+' }}${{ transaccion.monto }}
+
+  </ion-badge>
+
+</ion-item>

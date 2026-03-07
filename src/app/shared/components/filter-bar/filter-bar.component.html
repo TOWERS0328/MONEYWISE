@@ -1,0 +1,32 @@
+<ion-segment (ionChange)="onTipoChange($event)">
+
+  <ion-segment-button value="">
+    <ion-label>Todos</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="ingreso">
+    <ion-label>Ingresos</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="gasto">
+    <ion-label>Gastos</ion-label>
+  </ion-segment-button>
+
+</ion-segment>
+
+<ion-item>
+  <ion-label>Categoría</ion-label>
+
+  <ion-select (ionChange)="onCategoriaChange($event)">
+    <ion-select-option value="">Todas</ion-select-option>
+    <ion-select-option value="comida">Comida</ion-select-option>
+    <ion-select-option value="transporte">Transporte</ion-select-option>
+    <ion-select-option value="salario">Salario</ion-select-option>
+  </ion-select>
+
+</ion-item>
+
+<ion-searchbar
+  placeholder="Buscar transacción"
+  (ionInput)="onBuscarChange($event)">
+</ion-searchbar>

@@ -12,6 +12,8 @@ export interface Transaccion {
 
   descripcion?: string;
 
-  foto?: string;
+  
+ foto?: string | null;      // ← agregar | null
+  comprobante?: string | null;
 
 }
