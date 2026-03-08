@@ -1,14 +1,47 @@
-ion-card {
-  margin: 8px 12px;
+.dashboard-card{
+  background: white;
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.06);
+  margin:0;
+
 }
 
-ion-card-content {
-  padding-top: 4px;
-  padding-bottom: 8px;
+.card-top{
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+
 }
 
-.monto {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 0;
+.icon-box{
+
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F4F4F4;
+
+}
+
+.icon-box ion-icon{
+  font-size:20px;
+
+}
+
+.card-title{
+  font-size:15px;
+  font-weight:600;
+  color:#555;
+
+}
+
+.card-amount{
+  font-size:26px;
+  font-weight:700;
+
 }

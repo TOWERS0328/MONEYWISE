@@ -1,0 +1,35 @@
+.filter-container{
+
+  padding:10px 14px;
+
+}
+
+.segment-filter{
+
+  background:white;
+  border-radius:14px;
+  padding:4px;
+  margin-bottom:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+
+}
+
+/* categoria */
+
+.categoria-select{
+
+  border-radius:12px;
+  margin-bottom:10px;
+  --background:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
+}
+
+/* buscador */
+
+.searchbar-filter{
+
+  --border-radius:14px;
+  --box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
+}

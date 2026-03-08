@@ -1,12 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { IonCard, IonCardContent } from "@ionic/angular/standalone";
+import { CameraService } from 'src/app/core/services/camera';
 
 @Component({
   selector: 'app-photo-selector',
   templateUrl: './photo-selector.component.html',
   styleUrls: ['./photo-selector.component.scss'],
-  standalone:false
+  standalone: false,
 })
 export class PhotoSelectorComponent {
 
@@ -14,39 +13,35 @@ export class PhotoSelectorComponent {
 
   @Output() fotoChange = new EventEmitter<string | null>();
 
-  constructor() {}
+  constructor(private cameraService: CameraService) {}
 
   async tomarFoto() {
 
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
+    const img = await this.cameraService.tomarFoto();
 
-    this.foto = image.dataUrl!;
-    this.fotoChange.emit(this.foto);
+    if(img){
+      this.foto = img;
+      this.fotoChange.emit(img);
+    }
 
   }
 
-  async seleccionarFoto() {
+  async galeria(){
 
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Photos
-    });
+    const img = await this.cameraService.seleccionarDeGaleria();
 
-    this.foto = image.dataUrl!;
-    this.fotoChange.emit(this.foto);
+    if(img){
+      this.foto = img;
+      this.fotoChange.emit(img);
+    }
 
   }
 
-  eliminarFoto() {
+  eliminar(){
+
     this.foto = null;
     this.fotoChange.emit(null);
+
   }
 
 }

@@ -1,5 +1,12 @@
+import { Categoria } from './categoria.model';
+
 export interface ResumenFinanciero {
+    saldoActual: number;
   totalIngresos: number;
   totalGastos: number;
-  saldo: number;
+  gastosPorCategoria: {
+    categoria: Categoria['nombre'];
+    monto: number;
+    porcentaje: number;
+  }[];
 }

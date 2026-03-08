@@ -1,6 +1,28 @@
-.header{
+.categoria-item{
+
+  --padding-start:0;
+  --inner-padding-end:0;
+  margin-bottom:14px;
+
+}
+
+.categoria-header{
   display:flex;
   justify-content:space-between;
-  font-size:14px;
+  align-items:center;
   margin-bottom:6px;
+}
+
+.categoria-nombre{
+  font-size:14px;
+}
+
+.categoria-monto{
+  font-size:13px;
+}
+
+ion-progress-bar{
+  height:10px;
+  border-radius:10px;
+
 }

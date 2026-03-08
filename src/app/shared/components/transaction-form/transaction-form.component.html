@@ -1,73 +1,118 @@
-<ion-card>
+<ion-header class="modal-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
 
-  <ion-card-content>
+      <ion-button fill="clear" (click)="cancelar()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
 
-    <!-- tipo -->
-    <ion-segment [(ngModel)]="transaccion.tipo">
+    </ion-buttons>
+    <ion-title>Nueva Transacción</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-      <ion-segment-button value="gasto">
-        <ion-label>Gasto</ion-label>
-      </ion-segment-button>
+<ion-content class="transaction-form">
 
-      <ion-segment-button value="ingreso">
-        <ion-label>Ingreso</ion-label>
-      </ion-segment-button>
+<form [formGroup]="form">
 
-    </ion-segment>
+<!-- TARJETA DATOS -->
+<ion-card class="form-card">
 
-    <!-- categoria -->
-    <ion-item>
-      <ion-label>Categoría</ion-label>
+<ion-card-content>
 
-      <ion-select [(ngModel)]="transaccion.categoria">
-        <ion-select-option value="comida">Comida</ion-select-option>
-        <ion-select-option value="transporte">Transporte</ion-select-option>
-        <ion-select-option value="entretenimiento">Entretenimiento</ion-select-option>
-        <ion-select-option value="salario">Salario</ion-select-option>
-      </ion-select>
-    </ion-item>
+<!-- Tipo -->
+<ion-text class="field-title">
+Tipo
+</ion-text>
 
-    <!-- fecha -->
-    <ion-item>
-      <ion-label>Fecha</ion-label>
+<ion-segment formControlName="tipo">
 
-      <ion-datetime
-        presentation="date"
-        [(ngModel)]="transaccion.fecha">
-      </ion-datetime>
-    </ion-item>
+  <ion-segment-button
+  *ngFor="let t of tipos"
+  [value]="t">
 
-    <!-- monto -->
-    <ion-item>
-      <ion-input
-        type="number"
-        label="Monto"
-        [(ngModel)]="transaccion.monto">
-      </ion-input>
-    </ion-item>
+  {{t}}
 
-    <!-- descripcion -->
-    <ion-item>
-      <ion-textarea
-        label="Descripción"
-        [(ngModel)]="transaccion.descripcion">
-      </ion-textarea>
-    </ion-item>
+  </ion-segment-button>
 
-    <!-- foto -->
-    <app-photo-selector
-      (fotoChange)="transaccion.foto = $event ?? undefined">
-    </app-photo-selector>
+</ion-segment>
 
-    <!-- botones -->
-    <ion-button expand="block" (click)="guardar()">
-      Guardar
-    </ion-button>
 
-    <ion-button expand="block" fill="clear" (click)="cancelar()">
-      Cancelar
-    </ion-button>
+<!-- Categoría -->
+<app-select-field
+label="Categoría"
+[options]="categoriasNombres"
+[value]="form.get('categoria')?.value"
+(valueChange)="form.get('categoria')?.setValue($event)">
+</app-select-field>
 
-  </ion-card-content>
+
+<!-- Monto -->
+<app-input-field
+label="Monto"
+type="number"
+[value]="form.get('monto')?.value"
+(valueChange)="form.get('monto')?.setValue($event)">
+</app-input-field>
+
+</ion-card-content>
 
 </ion-card>
+
+
+<!-- TARJETA FECHA -->
+
+<ion-card class="form-card">
+
+<ion-card-content>
+
+<ion-text class="field-title">
+Fecha
+</ion-text>
+
+<app-date-field
+[value]="form.get('fecha')?.value"
+(valueChange)="form.get('fecha')?.setValue($event)">
+</app-date-field>
+
+</ion-card-content>
+
+</ion-card>
+
+
+<!-- TARJETA DESCRIPCIÓN -->
+
+<ion-card class="form-card">
+
+<ion-card-content>
+
+<ion-text class="field-title">
+Descripción
+</ion-text>
+
+<ion-textarea
+formControlName="descripcion"
+placeholder="Agregar descripción...">
+</ion-textarea>
+
+</ion-card-content>
+
+</ion-card>
+
+
+<app-photo-selector
+(fotoChange)="foto = $event">
+</app-photo-selector>
+
+<ion-button
+expand="block"
+class="save-button"
+(click)="guardar()">
+
+Guardar Transacción
+
+</ion-button>
+
+</form>
+
+</ion-content>

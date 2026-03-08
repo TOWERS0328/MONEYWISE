@@ -1,0 +1,16 @@
+<ion-text
+  [color]="
+    tipo === 'Ingreso'
+      ? 'success'
+      : tipo === 'Gasto'
+      ? 'danger'
+      : 'medium'
+  ">
+
+  <span [ngClass]="tamano">
+
+    {{ tipo === 'Gasto' ? '-' : '+' }}{{ monto || 0 | currencyFormat }}
+
+  </span>
+
+</ion-text>

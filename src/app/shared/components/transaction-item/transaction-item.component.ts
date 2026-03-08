@@ -1,21 +1,21 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CATEGORIAS } from 'src/app/core/constants/categorias.constant';
 import { Transaccion } from 'src/app/core/model/transaccion.model';
-
 
 @Component({
   selector: 'app-transaction-item',
   templateUrl: './transaction-item.component.html',
   styleUrls: ['./transaction-item.component.scss'],
-  standalone: false
+  standalone: false,
 })
 export class TransactionItemComponent {
 
-  @Input() transaccion: any;
+  @Input() transaccion!: Transaccion;
 
-  @Output() itemClick = new EventEmitter<any>();
+  @Output() clickItem = new EventEmitter<string>();
 
-  handleClick() {
-    this.itemClick.emit(this.transaccion);
+  onClick(){
+    this.clickItem.emit(this.transaccion.id);
   }
 
 }

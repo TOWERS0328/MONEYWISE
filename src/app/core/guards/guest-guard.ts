@@ -1,17 +1,17 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { Auth } from '../services/auth.service';
+import { Auth } from '../services/auth';
 
-export const guestGuard: CanActivateFn = () => {
-
+export const guestGuard: CanActivateFn = async () => {
   const authService = inject(Auth);
   const router = inject(Router);
 
-  if (!authService.isAuthenticated()) {
+  const isAuth = await authService.waitForAuth();
+
+  if (!isAuth) {
     return true;
   }
 
   router.navigate(['/tabs/dashboard']);
   return false;
-
 };

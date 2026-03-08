@@ -1,34 +1,29 @@
 <ion-card>
 
-  <ion-card-header>
-    <ion-card-title>Foto del comprobante</ion-card-title>
-  </ion-card-header>
+<ion-card-header>
+  <ion-card-title>Comprobante</ion-card-title>
+</ion-card-header>
 
-  <ion-card-content>
+<ion-card-content>
 
-    <!-- Vista previa -->
-    <div *ngIf="foto">
-      <img [src]="foto" style="width:100%; border-radius:10px;" alt=""/>
-    </div>
+<div *ngIf="foto">
 
-    <!-- Botones -->
-    <ion-button expand="block" (click)="tomarFoto()">
-      Tomar foto
-    </ion-button>
+  <img [src]="foto" style="width:100%; border-radius:10px; margin-bottom:10px"/>
 
-    <ion-button expand="block" (click)="seleccionarFoto()">
-      Seleccionar de galería
-    </ion-button>
+</div>
 
-    <ion-button
-      expand="block"
-      color="danger"
-      *ngIf="foto"
-      (click)="eliminarFoto()">
+<ion-button expand="block" (click)="tomarFoto()">
+📷 Tomar Foto
+</ion-button>
 
-      Eliminar foto
-    </ion-button>
+<ion-button expand="block" fill="outline" (click)="galeria()">
+🖼 Seleccionar de Galería
+</ion-button>
 
-  </ion-card-content>
+<ion-button *ngIf="foto" expand="block" color="danger" (click)="eliminar()">
+Eliminar Foto
+</ion-button>
+
+</ion-card-content>
 
 </ion-card>

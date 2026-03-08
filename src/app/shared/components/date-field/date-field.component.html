@@ -1,0 +1,19 @@
+<ion-item>
+
+  <ion-label>
+    {{label}}
+  </ion-label>
+
+  <ion-datetime
+  presentation="date"
+  [value]="value"
+  (ionChange)="onChange($event)">
+  </ion-datetime>
+
+</ion-item>
+
+<ion-note color="danger" *ngIf="error">
+
+{{error}}
+
+</ion-note>

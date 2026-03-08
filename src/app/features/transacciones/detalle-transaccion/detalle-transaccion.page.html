@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+      <ion-button fill="clear" (click)="volver()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+    <ion-title>Detalle</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content *ngIf="transaccion" class="ion-padding">
+
+<ion-card>
+
+<ion-card-header>
+
+<ion-card-title>
+{{ transaccion.categoria }}
+</ion-card-title>
+
+</ion-card-header>
+
+<ion-card-content>
+
+<p>
+<strong>Tipo:</strong>
+{{ transaccion.tipo }}
+</p>
+
+<p>
+<strong>Monto:</strong>
+${{ transaccion.monto }}
+</p>
+
+<p>
+<strong>Fecha:</strong>
+{{ transaccion.fecha | date:'mediumDate' }}
+</p>
+
+<p>
+<strong>Descripción:</strong>
+{{ transaccion.descripcion || 'Sin descripción' }}
+</p>
+
+</ion-card-content>
+
+</ion-card>
+
+<!-- Foto comprobante -->
+
+<ion-card *ngIf="transaccion.foto">
+
+<app-photo-preview
+[src]="transaccion.foto"
+size="large"
+(photoClick)="abrirFoto()">
+</app-photo-preview>
+
+</ion-card>
+
+<!-- Botones -->
+
+<ion-button expand="block" color="primary" (click)="editar()">
+Editar
+</ion-button>
+
+<ion-button expand="block" color="danger" (click)="eliminar()">
+Eliminar
+</ion-button>
+
+</ion-content>

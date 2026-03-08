@@ -1,15 +1,29 @@
-<ion-card [ngClass]="tipo">
+<ion-card class="dashboard-card">
 
-  <ion-card-header>
-    <ion-item lines="none">
-      <ion-icon slot="start" [name]="icono"></ion-icon>
-      <ion-label>{{ titulo }}</ion-label>
+  <div class="card-top">
 
-      <ion-text class="monto">
-        {{ monto | currency:'USD':'symbol':'1.0-0' }}
-      </ion-text>
+    <div class="icon-box">
 
-    </ion-item>
-  </ion-card-header>
+      <ion-icon
+        [name]="icono">
+      </ion-icon>
+
+    </div>
+
+    <span class="card-title">
+      {{ titulo }}
+    </span>
+
+  </div>
+
+  <div class="card-amount">
+
+    <app-amount-display
+      [monto]="monto"
+      [tipo]="tipo"
+      tamano="large">
+    </app-amount-display>
+
+  </div>
 
 </ion-card>

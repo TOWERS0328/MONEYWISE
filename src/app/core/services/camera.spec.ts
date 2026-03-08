@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Camera } from './camera.service';
+import { Camera } from './camera';
 
 describe('Camera', () => {
   let service: Camera;

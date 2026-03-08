@@ -1,0 +1,79 @@
+<ion-header class="dashboard-header">
+
+  <ion-toolbar>
+
+    <ion-title class="dashboard-title">
+      Dashboard
+    </ion-title>
+
+    <ion-buttons slot="end">
+
+      <ion-button class="logout-btn" (click)="logout()">
+
+        <ion-icon name="log-out-outline"></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="dashboard-content">
+
+  <div class="dashboard-container">
+
+    <!-- SALDO -->
+
+    <app-dashboard-card
+      titulo="Saldo actual"
+      [monto]="saldo"
+      tipo="Neutral"
+      icono="wallet"
+      class="saldo-card">
+    </app-dashboard-card>
+
+
+    <!-- INGRESOS Y GASTOS -->
+
+    <div class="cards-row">
+
+      <app-dashboard-card
+        titulo="Ingresos"
+        [monto]="ingresos"
+        tipo="Ingreso"
+        icono="arrow-up">
+      </app-dashboard-card>
+
+
+      <app-dashboard-card
+        titulo="Gastos"
+        [monto]="gastos"
+        tipo="Gasto"
+        icono="arrow-down">
+      </app-dashboard-card>
+
+    </div>
+
+
+    <!-- CATEGORIAS -->
+
+    <div class="category-card">
+
+      <h2>Gastos por categoría</h2>
+
+      <app-progress-bar-category
+        *ngFor="let c of categorias | keyvalue"
+        [categoria]="c.key"
+        [monto]="c.value"
+        [porcentaje]="gastos ? c.value / gastos : 0"
+        color="danger">
+      </app-progress-bar-category>
+
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,12 @@
+<div
+class="photo-container"
+[class.small]="size==='small'"
+[class.medium]="size==='medium'"
+[class.large]="size==='large'"
+(click)="onClick()">
+
+<img
+[src]="src"
+alt="comprobante">
+
+</div>

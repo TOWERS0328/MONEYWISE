@@ -1,0 +1,91 @@
+.transactions-header{
+
+  ion-toolbar{
+
+    --background:#ffffff;
+    --border-width:0;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+
+    padding-left:10px;
+    padding-right:10px;
+
+  }
+
+}
+
+.transactions-title{
+
+  font-size:22px;
+  font-weight:800;
+
+  letter-spacing:0.3px;
+
+  color:#000000;
+
+}
+
+.dashboard-content{
+
+  --background: linear-gradient(
+    180deg,
+    #F8EDFB 0%,
+    #F4EFF7 100%
+  );
+
+}
+
+ion-content::part(scroll){
+  background: transparent;
+}
+
+.transactions-list{
+
+  background:transparent;
+
+  padding-top:10px;
+  padding-bottom:90px;
+
+}
+
+app-filter-bar{
+
+  display:block;
+
+  margin:10px 12px 8px 12px;
+
+}
+
+ion-fab{
+
+  background:transparent !important;
+
+  padding:0;
+
+}
+
+ion-fab-button{
+
+  --background:#7A3A8E;
+
+  width:64px;
+  height:64px;
+
+  border-radius:50%;
+
+  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+
+}
+
+ion-fab-button ion-icon{
+
+  font-size:28px;
+
+}
+
+
+ion-icon{
+
+  font-size:20px;
+
+}

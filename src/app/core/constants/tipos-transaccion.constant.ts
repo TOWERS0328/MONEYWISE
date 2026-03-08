@@ -1,6 +1,6 @@
-export const TIPOS_TRANSACCION = [
-  'ingreso',
-  'gasto'
+export const TipoTansanccion = [
+  'Ingreso',
+  'Gasto'
 ] as const;
 
-export type TipoTransaccion = typeof TIPOS_TRANSACCION[number];
+export type TipoTransaccion = typeof TipoTansanccion[number];

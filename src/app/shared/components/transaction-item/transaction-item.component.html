@@ -1,44 +1,45 @@
-<ion-item button (click)="handleClick()">
+<ion-item lines="none" class="transaction-item" (click)="onClick()">
 
-  <!-- icono -->
-  <ion-avatar slot="start">
-    <ion-icon
-      [name]="transaccion.tipo === 'gasto' ? 'arrow-down-outline' : 'arrow-up-outline'"
-      [color]="transaccion.tipo === 'gasto' ? 'danger' : 'success'">
-    </ion-icon>
-  </ion-avatar>
+  <app-category-icon
+    slot="start"
+    [categoria]="transaccion.categoria"
+    tamaño="small">
+  </app-category-icon>
 
-  <!-- informacion -->
-  <ion-label>
+  <ion-label class="transaction-info">
 
-    <h2>
-      {{ transaccion.descripcion || transaccion.categoria }}
-    </h2>
+    <app-category-badge
+      [categoria]="transaccion.categoria">
+    </app-category-badge>
 
-    <p>
-      {{ transaccion.categoria }} • {{ transaccion.fecha | date }}
-    </p>
+    <ion-text class="descripcion">
+
+      {{ transaccion.descripcion || 'Sin descripción' }}
+
+    </ion-text>
+
+    <ion-text color="medium" class="fecha">
+
+      {{ transaccion.fecha | dateFormat }}
+
+    </ion-text>
 
   </ion-label>
 
-  <!-- miniatura comprobante -->
-  <ion-thumbnail
-    slot="end"
-    *ngIf="transaccion.comprobante">
+  <div class="right-section">
 
-    <img
-      [src]="transaccion.comprobante"
-      alt="Comprobante de transacción">
+    <app-amount-display
+      [monto]="transaccion.monto"
+      [tipo]="transaccion.tipo"
+      tamano="small">
+    </app-amount-display>
 
-  </ion-thumbnail>
+    <app-photo-preview
+      *ngIf="transaccion.foto"
+      [src]="transaccion.foto"
+      size="small">
+    </app-photo-preview>
 
-  <!-- monto -->
-  <ion-badge
-    slot="end"
-    [color]="transaccion.tipo === 'gasto' ? 'danger' : 'success'">
-
-    {{ transaccion.tipo === 'gasto' ? '-' : '+' }}${{ transaccion.monto }}
-
-  </ion-badge>
+  </div>
 
 </ion-item>

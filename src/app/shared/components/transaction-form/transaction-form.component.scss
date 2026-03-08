@@ -1,0 +1,79 @@
+.transaction-form{
+
+--background:#F4EFF7;
+
+padding-bottom:40px;
+
+}
+
+/* tarjetas */
+
+.form-card{
+
+border-radius:16px;
+
+box-shadow:0 6px 14px rgba(0,0,0,0.08);
+
+margin-bottom:16px;
+
+}
+
+/* títulos */
+
+.field-title{
+
+font-size:14px;
+
+font-weight:600;
+
+color:#666;
+
+display:block;
+
+margin-bottom:8px;
+
+}
+
+/* textarea */
+
+ion-textarea{
+
+background:#F9F9FB;
+
+border-radius:10px;
+
+padding:10px;
+
+}
+
+/* botón */
+
+.save-button{
+
+margin-top:20px;
+
+--background:#7A3A8E;
+
+--border-radius:14px;
+
+height:50px;
+
+font-weight:600;
+
+font-size:16px;
+
+box-shadow:0 8px 18px rgba(0,0,0,0.2);
+
+}
+
+ion-datetime{
+
+margin-top:10px;
+
+border-radius:12px;
+
+background:white;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+}
