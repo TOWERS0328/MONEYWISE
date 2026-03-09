@@ -38,27 +38,30 @@ export class RegisterPage {
     return pass === confirmar ? null : { noCoinciden: true };
   }
 
-  onRegistrar(){                     // ← era 'register()'
-    if(this.registerForm.invalid) return;
+ onRegistrar() {
+  if (this.registerForm.invalid) return;
 
-    const { nombre, email, password } = this.registerForm.value;
+  const { nombre, email, password } = this.registerForm.value;
 
-    const user = {
-      id: crypto.randomUUID(),
-      nombre,
-      email,
-      password,
-      fechaRegistro: new Date()
-    };
+  // Creamos el objeto cumpliendo con TODA la interfaz User
+  const user = {
+    id: crypto.randomUUID(),
+    nombre,
+    email,
+    password,
+    fechaRegistro: new Date(),
+    foto: '',             // ← Agregado para cumplir la interfaz
+    ultimoIngreso: Date.now() // ← Agregado para cumplir la interfaz
+  };
 
-    const success = this.authService.register(user);
+  const success = this.authService.register(user);
 
-    if(success){
-      this.router.navigate(['/tabs/dashboard']);
-    } else {
-      this.toast.show('El usuario ya existe', 'danger');
-    }
+  if (success) {
+    this.router.navigate(['/tabs/dashboard']);
+  } else {
+    this.toast.show('El usuario ya existe', 'danger');
   }
+}
 
   volverLogin(){
     this.router.navigate(['/auth/login']);

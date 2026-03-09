@@ -1,0 +1,189 @@
+// Agrega esto al inicio de perfil.page.scss
+$neon-green: #39FF14;
+
+/* Contenedor relativo para el botón de edición */
+.avatar-edit-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+
+/* Contenedor relativo para el botón de edición */
+.avatar-edit-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.avatar-glow {
+  width: 120px;
+  height: 120px;
+  border: 2px solid $neon-green;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+  background: #0d1117; // Fondo oscuro para que resalte la imagen default
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+/* El círculo pequeño de edición */
+.edit-photo-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  --background: #{$neon-green};
+  --color: #000;
+  box-shadow: 0 0 10px rgba($neon-green, 0.5);
+
+  ion-icon {
+    font-size: 18px;
+  }
+}
+$neon-green: #39FF14;
+$bg-dark: #0d1117;
+
+.profile-content {
+  --background: #{$bg-dark};
+  --color: #ffffff;
+}
+
+.profile-main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: $bg-dark; // Forzamos el fondo oscuro aquí también
+}
+
+.avatar-edit-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.avatar-glow {
+  width: 120px;
+  height: 120px;
+  border: 2px solid $neon-green;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+  background: #1a1f26;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.edit-photo-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  --border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  --background: #{$neon-green};
+  --color: #000;
+  margin: 0;
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+}
+
+.neon-text {
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 10px 0 5px;
+}
+
+/* Estilos para la lista de información que no veías */
+.info-list {
+  padding: 0 20px 40px;
+  background: $bg-dark; // Asegura que el fondo siga siendo oscuro abajo
+  min-height: 50vh;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .card-icon {
+    font-size: 24px;
+    color: $neon-green;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+    }
+    .value {
+      font-size: 15px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+  }
+}
+
+.highlight-card {
+  border-color: rgba($neon-green, 0.3);
+  background: rgba($neon-green, 0.05);
+}
+$neon-green: #39FF14;
+$bg-black: #000000; // Negro puro para máximo contraste
+$bg-dark: #0d1117;  // Gris oscuro para el contenido
+
+.modal-header {
+  // Eliminamos bordes predeterminados
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+
+  ion-toolbar {
+    --background: #{$bg-black}; // Fondo negro puro
+    --color: #ffffff;           // Texto blanco
+    --border-style: none;
+
+    ion-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 16px;
+      // Opcional: un toque de brillo neón al título
+      text-shadow: 0 0 10px rgba($neon-green, 0.3);
+    }
+  }
+}
+
+.profile-content {
+  // Fondo del contenido un poco más suave que el negro absoluto para dar profundidad
+  --background: #{$bg-dark};
+}
+
+// Botón de cerrar sesión para que sea legible sobre el fondo oscuro
+.logout-btn {
+  margin-top: 20px;
+  --color: #ff4961;
+  font-weight: 700;
+  letter-spacing: 1px;
+}

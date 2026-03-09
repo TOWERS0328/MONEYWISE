@@ -1,0 +1,61 @@
+
+<ion-header mode="ios" class="modal-header">
+  <ion-toolbar>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile-content" *ngIf="usuario">
+
+  <div class="profile-main-section">
+    <div class="avatar-edit-container">
+      <div class="avatar-glow">
+        <img [src]="usuario.foto ? usuario.foto : 'assets/img/user.png'" alt="profile">
+        <div class="online-status"></div>
+      </div>
+
+      <ion-button class="edit-photo-btn" (click)="cambiarFoto()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </div>
+
+    <h2 class="neon-text">{{ usuario.nombre }}</h2>
+    <p class="user-id-badge">ID: {{ usuario.id.substring(0,8) }}</p>
+  </div>
+
+  <div class="info-list">
+
+    <div class="info-card">
+      <ion-icon name="mail-unread-outline" class="card-icon"></ion-icon>
+      <div class="card-text">
+        <span class="label">Email Registrado</span>
+        <span class="value">{{ usuario.email }}</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <ion-icon name="calendar-number-outline" class="card-icon"></ion-icon>
+      <div class="card-text">
+        <span class="label">Miembro desde</span>
+        <span class="value">{{ usuario.fechaRegistro | date:'longDate' }}</span>
+      </div>
+    </div>
+
+    <div class="info-card highlight-card">
+      <ion-icon name="finger-print-outline" class="card-icon"></ion-icon>
+      <div class="card-text">
+        <span class="label">Último Acceso Seguro</span>
+        <span class="value">{{ usuario.ultimoIngreso | date:'medium' }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="profile-footer">
+    <ion-button expand="block" fill="clear" color="danger" class="logout-btn" (click)="handleLogout()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar Sesión Segura
+    </ion-button>
+  </div>
+
+</ion-content>

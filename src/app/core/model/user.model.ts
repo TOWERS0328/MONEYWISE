@@ -3,5 +3,7 @@ export interface User {
   nombre: string;
   email: string;
   password: string;
-  fechaRegistro: Date;
+  fechaRegistro: Date | number;
+  foto: string;
+  ultimoIngreso: number;
 }

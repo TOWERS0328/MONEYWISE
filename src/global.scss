@@ -36,21 +36,19 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 /*@import "@ionic/angular/css/palettes/dark.system.css";*/
 
-/* My color */
-:root {
-	--ion-color-micolor: #2ac64c;
-	--ion-color-micolor-rgb: 42,198,76;
-	--ion-color-micolor-contrast: #000000;
-	--ion-color-micolor-contrast-rgb: 0,0,0;
-	--ion-color-micolor-shade: #25ae43;
-	--ion-color-micolor-tint: #3fcc5e;
-}
+.cyber-action-sheet {
+  --background: #0d1117;
+  --color: #ffffff;
 
-.ion-color-mycolor {
-	--ion-color-base: var(--ion-color-micolor);
-	--ion-color-base-rgb: var(--ion-color-micolor-rgb);
-	--ion-color-contrast: var(--ion-color-micolor-contrast);
-	--ion-color-contrast-rgb: var(--ion-color-micolor-contrast-rgb);
-	--ion-color-shade: var(--ion-color-micolor-shade);
-	--ion-color-tint: var(--ion-color-micolor-tint);
+  .action-sheet-title {
+    color: #39FF14 !important;
+    font-weight: 800;
+  }
+
+  .action-sheet-button {
+    color: #ffffff !important;
+    ion-icon {
+      color: #39FF14 !important;
+    }
+  }
 }

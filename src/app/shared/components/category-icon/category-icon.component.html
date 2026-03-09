@@ -1,12 +1,12 @@
 <ion-avatar
-class="category-icon"
-[class.small]="tamano==='small'"
-[class.medium]="tamano==='medium'"
-[ngStyle]="{'background': (categoria | categoryColor)}">
-
-<ion-icon
-[name]="categoria | categoryIcon"
-color="light">
-</ion-icon>
-
+  class="category-icon"
+  [class.small]="tamano==='small'"
+  [ngStyle]="{
+    'background': (categoria | categoryColor),
+    'box-shadow': '0 4px 12px ' + (categoria | categoryColor) + '66'
+  }">
+  <ion-icon
+    [name]="categoria | categoryIcon"
+    color="light">
+  </ion-icon>
 </ion-avatar>

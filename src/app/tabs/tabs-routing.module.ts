@@ -23,7 +23,11 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/dashboard',
         pathMatch: 'full'
-      }
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('../features/perfil/perfil.module').then(m => m.PerfilPageModule)
+      },
     ]
   }
 ];
