@@ -1,0 +1,219 @@
+// VARIABLES
+$bg: #0d1117;
+$surface: rgba(255,255,255,0.05);
+$border: rgba(255,255,255,0.08);
+$green: #2ac64c;
+$green-dark: #1a8c34;
+$red: #ff4d4d;
+$text: #ffffff;
+$text-muted: rgba(255,255,255,0.5);
+
+
+// HEADER
+.detalle-header {
+
+  ion-toolbar {
+
+    --background: rgba(13,17,23,0.95);
+    --border-color: #{$border};
+
+    padding-left: 8px;
+    padding-right: 8px;
+
+  }
+
+  .detalle-title {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: $text;
+  }
+
+  .back-btn {
+    --color: #{$text-muted};
+    font-size: 22px;
+  }
+
+}
+
+
+// CONTENT
+.detalle-content {
+
+  --background: #{$bg};
+  --color: #{$text};
+
+  font-family: 'DM Sans', sans-serif;
+
+  padding-bottom: 20px;
+
+  position: relative;
+
+}
+
+
+// BACKGROUND
+.bg-layer {
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+.bg-circle {
+
+  position: absolute;
+  border-radius: 50%;
+
+  filter: blur(90px);
+  opacity: 0.14;
+
+  &.c1 {
+    width: 260px;
+    height: 260px;
+    background: $green;
+    top: -70px;
+    right: -70px;
+  }
+
+  &.c2 {
+    width: 200px;
+    height: 200px;
+    background: $green-dark;
+    bottom: 12%;
+    left: -60px;
+  }
+
+  &.c3 {
+    width: 150px;
+    height: 150px;
+    background: #3fcc5e;
+    top: 55%;
+    right: 6%;
+  }
+
+}
+
+
+// CONTAINER
+.detalle-container {
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  padding-top: 12px;
+
+}
+
+
+// CARD (Optimizada Android)
+.detalle-card {
+
+  background: $surface;
+
+  border: 1px solid $border;
+
+  border-radius: 18px;
+
+  padding: 12px;
+
+  /* glass fake compatible Android */
+
+  box-shadow:
+  0 10px 28px rgba(0,0,0,0.35),
+  inset 0 1px rgba(255,255,255,0.04);
+
+  will-change: transform;
+
+  ion-card-title {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: $text;
+  }
+
+  p {
+
+    font-size: 14px;
+    color: $text-muted;
+
+    margin-bottom: 8px;
+    line-height: 1.4;
+
+    strong {
+      color: $text;
+      font-weight: 600;
+    }
+
+  }
+
+}
+
+
+// PHOTO
+.photo-card {
+
+  background: $surface;
+
+  border: 1px solid $border;
+
+  border-radius: 18px;
+
+  padding: 10px;
+
+  overflow: hidden;
+
+}
+
+
+// BUTTONS
+.btn-group {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 10px;
+
+}
+
+
+// BOTON EDITAR
+.btn-edit {
+
+  --background: linear-gradient(135deg,#2ac64c,#1a8c34);
+  --border-radius: 16px;
+
+  height: 48px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 14px rgba(42,198,76,0.35);
+
+}
+
+
+// BOTON ELIMINAR
+.btn-delete {
+
+  --background: linear-gradient(135deg,#ff4d4d,#c0392b);
+  --border-radius: 16px;
+
+  height: 48px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 14px rgba(255,77,77,0.35);
+
+}

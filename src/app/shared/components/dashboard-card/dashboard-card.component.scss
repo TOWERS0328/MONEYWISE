@@ -1,47 +1,48 @@
-.dashboard-card{
-  background: white;
-  border-radius:18px;
-  padding:16px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.06);
-  margin:0;
-
+.dashboard-card {
+  background: rgb(2, 9, 0);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  margin: 0;
+  border: 1px solid rgba(57, 255, 20, 0.1); // Un borde muy sutil verde
 }
 
-.card-top{
-
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:10px;
-
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.icon-box{
-
-  width:36px;
-  height:36px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#F4F4F4;
-
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Fondo oscuro para que el neón resalte */
+  background: rgba(57, 255, 20, 0.1);
+  border: 1px solid rgba(57, 255, 20, 0.3);
 }
 
-.icon-box ion-icon{
-  font-size:20px;
-
+.icon-box ion-icon {
+  font-size: 20px;
+  /* Color Verde Neón Puro */
+  color: #39FF14;
+  /* Efecto de resplandor (Glow) */
+  filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.8));
 }
 
-.card-title{
-  font-size:15px;
-  font-weight:600;
-  color:#555;
-
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  /* Cambiado de #555 a un tono más claro para que sea legible en fondo negro */
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.card-amount{
-  font-size:26px;
-  font-weight:700;
-
+.card-amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
 }

@@ -26,6 +26,7 @@ import { PhotoGalleryModalComponent } from './components/photo-gallery-modal/pho
 import { DateFieldComponent } from './components/date-field/date-field.component';
 import { SelectFieldComponent } from './components/select-field/select-field.component';
 import { InputFieldComponent } from './components/input-field/input-field.component';
+import { ListaTransaccionesPage } from '../features/transacciones/transacciones.page';
 
 const COMPONENTS = [
   TransactionFormComponent,
@@ -43,6 +44,7 @@ const COMPONENTS = [
   DateFieldComponent,
   SelectFieldComponent,
   InputFieldComponent,
+  ListaTransaccionesPage
 ];
 
 const PIPES = [

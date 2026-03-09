@@ -1,0 +1,67 @@
+// VARIABLES NEÓN
+$neon-green: #39FF14;
+$input-bg: rgba(0, 0, 0, 0.2);
+$border-color: rgba(255, 255, 255, 0.08);
+
+ion-item {
+  --background: #{$input-bg};
+  --color: #ffffff;
+  --border-radius: 12px;
+  --padding-start: 12px;
+  --highlight-height: 0px; // Quitamos la línea nativa de Ionic
+
+  border: 1px solid $border-color;
+  margin-bottom: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+
+  // ESTADO ENFOQUE (Cuando el usuario escribe)
+  &.item-has-focus {
+    border-color: rgba($neon-green, 0.5);
+    box-shadow: 0 0 15px rgba($neon-green, 0.15);
+    background: rgba(57, 255, 20, 0.02);
+  }
+
+  // ESTADO ERROR
+  &.item-has-error {
+    border-color: rgba(255, 73, 97, 0.5);
+    box-shadow: 0 0 15px rgba(255, 73, 97, 0.1);
+  }
+
+  // Estilo de la Etiqueta (Label)
+  ion-label {
+    font-size: 11px !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(10px) !important; // Ajuste para el modo floating
+
+    &[position="floating"].label-floating {
+      color: $neon-green !important;
+      transform: translateY(-8px) scale(0.8) !important;
+      text-shadow: 0 0 8px rgba($neon-green, 0.4);
+    }
+  }
+
+  // Estilo del Input
+  ion-input {
+    --placeholder-color: rgba(255, 255, 255, 0.2);
+    --placeholder-opacity: 1;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Nota de error
+ion-note {
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 14px;
+  margin-top: 2px;
+  display: block;
+  color: #ff4961 !important;
+  text-shadow: 0 0 5px rgba(255, 73, 97, 0.3);
+}

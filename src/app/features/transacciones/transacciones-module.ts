@@ -4,12 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from 'src/app/shared/shared-module';
 import { TransaccionesRoutingModule } from './transacciones-routing-module';
-import { ListaTransaccionesPage } from './lista-transacciones/lista-transacciones.page'; // ← vuelve aquí
+// ❌ Eliminar import de ListaTransaccionesPage
 import { DetalleTransaccionPage } from './detalle-transaccion/detalle-transaccion.page';
 
 @NgModule({
   declarations: [
-    ListaTransaccionesPage, // ← vuelve aquí
     DetalleTransaccionPage
   ],
   imports: [
@@ -17,7 +16,7 @@ import { DetalleTransaccionPage } from './detalle-transaccion/detalle-transaccio
     FormsModule,
     IonicModule,
     TransaccionesRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class TransaccionesModule { }

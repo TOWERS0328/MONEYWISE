@@ -1,39 +1,64 @@
-.transaction-item{
+// VARIABLES NEÓN (Asegúrate de tenerlas o definirlas aquí)
+$neon-green: #39FF14;
+$dark-surface: rgba(255, 255, 255, 0.05);
+$item-border: rgba(255, 255, 255, 0.08);
 
-  background:white;
-  border-radius:16px;
-  margin:12px 14px;
-  padding:12px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.05);
+.transaction-item {
+  // Fondo oscuro traslúcido (Efecto Glassmorphism)
+  --background: #{$dark-surface};
+  background: $dark-surface;
 
+  border: 1px solid $item-border;
+  border-radius: 20px; // Un poco más redondeado para estilo moderno
+  margin: 10px 14px;
+  padding: 8px;
+
+  // Sombra neón muy suave por defecto
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  // Para Android: asegura que el efecto blur se vea bien
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  // Efecto al presionar (Active State)
+  &:active {
+    --background: rgba(57, 255, 20, 0.05);
+    border-color: rgba($neon-green, 0.4);
+    transform: scale(0.98);
+    transition: all 0.1s ease;
+  }
 }
 
-.transaction-info{
-
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 8px;
 }
 
-.descripcion{
-
-  font-size:14px;
-  color:#444;
-
+.descripcion {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff; // Texto blanco para legibilidad
+  letter-spacing: 0.2px;
 }
 
-.fecha{
-
-  font-size:12px;
-
+.fecha {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5) !important; // Gris claro
 }
 
-.right-section{
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+}
 
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:6px;
-
+// Ajuste para el componente de monto si es necesario
+app-amount-display {
+  font-weight: 700;
 }

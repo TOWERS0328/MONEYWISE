@@ -1,23 +1,16 @@
-<ion-header>
-
+<ion-header class="gallery-header">
   <ion-toolbar>
-
-    <ion-title>Foto</ion-title>
-
+    <ion-title>Galería</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="cerrar()">
+      <ion-button class="close-btn" (click)="cerrar()">
         Cerrar
       </ion-button>
     </ion-buttons>
-
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content class="photo-container">
-
-  <img
-  *ngFor="let foto of fotos"
-  [src]="foto">
-
+  <div class="photo-wrapper">
+    <img *ngFor="let foto of fotos" [src]="foto" class="gallery-img" alt="">
+  </div>
 </ion-content>

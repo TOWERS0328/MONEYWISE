@@ -1,10 +1,12 @@
 <ion-header class="dashboard-header">
 
+
+
   <ion-toolbar>
 
-    <ion-title class="dashboard-title">
-      Dashboard
-    </ion-title>
+
+
+    <ion-title class="dashboard-title">Dashboard</ion-title>
 
     <ion-buttons slot="end">
 
@@ -21,56 +23,128 @@
 </ion-header>
 
 
+
 <ion-content class="dashboard-content">
+
+  <div class="bg-layer" aria-hidden="true">
+
+    <div class="bg-circle c1"></div>
+
+    <div class="bg-circle c2"></div>
+
+    <div class="bg-circle c3"></div>
+
+  </div>
+
+
 
   <div class="dashboard-container">
 
-    <!-- SALDO -->
+    <div class="greeting">
+
+      <h2 class="greeting-main">Tu <span>resumen</span> financiero</h2>
+
+    </div>
+
+
 
     <app-dashboard-card
+
       titulo="Saldo actual"
+
       [monto]="saldo"
+
       tipo="Neutral"
+
       icono="wallet"
+
       class="saldo-card">
+
     </app-dashboard-card>
 
 
-    <!-- INGRESOS Y GASTOS -->
 
     <div class="cards-row">
 
       <app-dashboard-card
+
         titulo="Ingresos"
+
         [monto]="ingresos"
+
         tipo="Ingreso"
+
         icono="arrow-up">
+
       </app-dashboard-card>
 
 
+
       <app-dashboard-card
+
         titulo="Gastos"
+
         [monto]="gastos"
+
         tipo="Gasto"
+
         icono="arrow-down">
+
       </app-dashboard-card>
 
     </div>
 
 
-    <!-- CATEGORIAS -->
 
     <div class="category-card">
 
-      <h2>Gastos por categoría</h2>
+      <h2>Distribución de gastos</h2>
 
-      <app-progress-bar-category
-        *ngFor="let c of categorias | keyvalue"
-        [categoria]="c.key"
-        [monto]="c.value"
-        [porcentaje]="gastos ? c.value / gastos : 0"
-        color="danger">
-      </app-progress-bar-category>
+
+
+      <div class="chart-container" *ngIf="gastos > 0">
+
+        <canvas id="categoryChart"></canvas>
+
+      </div>
+
+
+
+      <div class="category-list">
+
+        <div class="category-item" *ngFor="let item of categorias | keyvalue">
+
+          <div class="category-info">
+
+            <div class="category-left">
+
+              <ion-icon [name]="getIcon(item.key)" class="category-icon"></ion-icon>
+
+              <span class="category-name">{{item.key}}</span>
+
+            </div>
+
+            <span class="category-value">${{item.value}}</span>
+
+          </div>
+
+
+
+          <div class="progress-bar">
+
+            <div
+
+              class="progress-fill"
+
+              [style.width.%]="gastos ? (item.value / gastos) * 100 : 0">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 

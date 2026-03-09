@@ -1,63 +1,18 @@
-<ion-menu side="start" menuId="main-menu" contentId="main-content">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>MoneyWise</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <!-- USUARIO -->
-    <div class="user-box ion-text-center ion-padding">
-      <img src="assets/img/user.png" class="avatar" alt="User Avatar">
-      <h2>nombe</h2>
-      <p>Bienvenido</p>
-    </div>
-    <!-- ITEMS MENU -->
-    <ion-list lines="none">
-      <ion-menu-toggle auto-hide="true">
-        <ion-item routerLink="/tabs/dashboard" routerDirection="root">
-          <ion-icon name="home-outline" slot="start"></ion-icon>
-          <ion-label>Dashboard</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-      <ion-menu-toggle auto-hide="true">
-        <ion-item routerLink="/tabs/transacciones" routerDirection="root">
-          <ion-icon name="swap-horizontal-outline" slot="start"></ion-icon>
-          <ion-label>Transacciones</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<div id="main-content" class="ion-page">
+<ion-app>
   <ion-tabs>
-    <ion-router-outlet></ion-router-outlet>
-    <ion-tab-bar slot="bottom">
+    
+    <ion-tab-bar slot="bottom" class="custom-tab-bar">
+
       <ion-tab-button tab="dashboard">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Inicio</ion-label>
+        <ion-icon name="grid"></ion-icon>
+        <ion-label>Dashboard</ion-label>
       </ion-tab-button>
+
       <ion-tab-button tab="transacciones">
-        <ion-icon name="swap-horizontal"></ion-icon>
+        <ion-icon name="receipt"></ion-icon>
         <ion-label>Movimientos</ion-label>
       </ion-tab-button>
+
     </ion-tab-bar>
   </ion-tabs>
-</div>
-<ion-tabs>
-
-  <ion-tab-bar slot="bottom">
-
-    <ion-tab-button tab="dashboard">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Dashboard</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="transacciones">
-      <ion-icon name="card"></ion-icon>
-      <ion-label>Transacciones</ion-label>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-
-</ion-tabs>
+</ion-app>

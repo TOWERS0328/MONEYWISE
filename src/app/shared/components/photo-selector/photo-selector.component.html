@@ -8,16 +8,16 @@
 
 <div *ngIf="foto">
 
-  <img [src]="foto" style="width:100%; border-radius:10px; margin-bottom:10px"/>
+  <img [src]="foto" style="width:100%; border-radius:10px; margin-bottom:10px" alt=""/>
 
 </div>
 
 <ion-button expand="block" (click)="tomarFoto()">
-📷 Tomar Foto
+ Tomar Foto
 </ion-button>
 
 <ion-button expand="block" fill="outline" (click)="galeria()">
-🖼 Seleccionar de Galería
+ Seleccionar de Galería
 </ion-button>
 
 <ion-button *ngIf="foto" expand="block" color="danger" (click)="eliminar()">

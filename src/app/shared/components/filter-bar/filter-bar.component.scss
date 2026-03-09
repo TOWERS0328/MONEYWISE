@@ -1,35 +1,88 @@
-.filter-container{
+// VARIABLES NEÓN (Mantén tus variables)
+$neon-green: #39FF14;
+$surface: rgba(255, 255, 255, 0.05);
+$border: rgba(255, 255, 255, 0.1);
 
-  padding:10px 14px;
-
+/* Fix Global para Android: El contenedor padre NO debe tener
+   un fondo sólido si queremos que el blur funcione */
+.filter-container {
+  padding: 10px 14px;
+  background: transparent;
+  // Truco para forzar aceleración de hardware en Android
+  transform: translateZ(0);
 }
 
-.segment-filter{
+/* SEGMENTO */
+.segment-filter {
+  --background: #{$surface};
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 4px;
+  margin-bottom: 12px;
 
-  background:white;
-  border-radius:14px;
-  padding:4px;
-  margin-bottom:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  // COMPATIBILIDAD ANDROID/IOS
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(180%);
 
+  ion-segment-button {
+    --color: rgba(255, 255, 255, 0.5);
+    --color-checked: #000000;
+    --indicator-color: #{$neon-green};
+    --indicator-box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+    --border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+
+    &::part(indicator-background) {
+      background: $neon-green;
+    }
+  }
 }
 
-/* categoria */
+/* SELECTOR DE CATEGORÍA */
+.categoria-select {
+  --background: #{$surface};
+  border: 1px solid $border;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  min-height: 48px;
 
-.categoria-select{
+  // Desenfoque
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 
-  border-radius:12px;
-  margin-bottom:10px;
-  --background:white;
-  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  ion-select {
+    --placeholder-color: rgba(255, 255, 255, 0.4);
+    --placeholder-opacity: 1;
+    color: #ffffff;
+    font-weight: 600;
 
+    &::part(icon) {
+      color: $neon-green;
+      opacity: 0.8;
+    }
+  }
 }
 
-/* buscador */
+/* BUSCADOR */
+.searchbar-filter {
+  --background: #{$surface};
+  --color: #ffffff;
+  --placeholder-color: rgba(255, 255, 255, 0.3);
+  --icon-color: #{$neon-green};
+  --clear-button-color: #{$neon-green};
+  --border-radius: 14px;
 
-.searchbar-filter{
+  // El buscador de Ionic tiene su propio contenedor interno,
+  // así que aplicamos el blur al contenedor que definimos nosotros
+  border: 1px solid $border;
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 
-  --border-radius:14px;
-  --box-shadow:0 4px 10px rgba(0,0,0,0.05);
-
+  &.searchbar-has-focus {
+    border-color: rgba($neon-green, 0.5);
+    box-shadow: 0 0 15px rgba($neon-green, 0.2);
+  }
 }

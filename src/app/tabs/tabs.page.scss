@@ -1,11 +1,50 @@
-.user-box{
-  text-align:center;
-  padding:20px;
+// VARIABLES DE COLOR
+$tab-bg: #000000;         // Negro puro
+$tab-inactive: #808080;   // Gris
+$tab-active: #39FF14;     // Verde Neón
+
+.custom-tab-bar {
+  --background: #{$tab-bg};
+  --border-color: rgba(255, 255, 255, 0.05); // Línea divisoria casi invisible
+  height: 65px;
+  border-top: 1px solid rgba($tab-active, 0.1); // Un toque verde muy sutil arriba
+
+  ion-tab-button {
+    --color: #{$tab-inactive};
+    --color-selected: #{$tab-active};
+    --ripple-color: rgba($tab-active, 0.2);
+
+    // Estilo del Icono
+    ion-icon {
+      font-size: 26px;
+      transition: all 0.3s ease;
+    }
+
+    // Estilo del Texto
+    ion-label {
+      font-size: 12px;
+      margin-top: 4px;
+      transition: all 0.3s ease;
+    }
+
+    // ESTADO SELECCIONADO (Verde Neón)
+    &.tab-selected {
+      ion-icon {
+        filter: drop-shadow(0 0 5px rgba($tab-active, 0.6));
+        transform: translateY(-2px);
+      }
+
+      ion-label {
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba($tab-active, 0.3);
+      }
+    }
+  }
 }
 
-.avatar{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  margin-bottom:10px;
+// ARREGLO PARA EL BLOQUEO DE PANTALLA
+// Asegúrate de que las capas de fondo no interfieran con los clics de los tabs
+.bg-layer {
+  pointer-events: none !important;
+  z-index: -1 !important;
 }

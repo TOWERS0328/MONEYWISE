@@ -1,79 +1,91 @@
-<ion-header>
+<ion-header class="detalle-header">
 
   <ion-toolbar>
 
     <ion-buttons slot="start">
-
-      <ion-button fill="clear" (click)="volver()">
+      <ion-button fill="clear" class="back-btn" (click)="volver()">
         <ion-icon name="chevron-back-outline"></ion-icon>
       </ion-button>
-
     </ion-buttons>
 
-    <ion-title>Detalle</ion-title>
+    <ion-title class="detalle-title">Detalle</ion-title>
 
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content *ngIf="transaccion" class="ion-padding">
 
-<ion-card>
+<ion-content *ngIf="transaccion" class="detalle-content ion-padding">
 
-<ion-card-header>
+  <!-- Fondo animado -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+    <div class="bg-circle c3"></div>
+  </div>
 
-<ion-card-title>
-{{ transaccion.categoria }}
-</ion-card-title>
+  <div class="detalle-container">
 
-</ion-card-header>
+    <ion-card class="detalle-card">
 
-<ion-card-content>
+      <ion-card-header>
+        <ion-card-title>
+          {{ transaccion.categoria }}
+        </ion-card-title>
+      </ion-card-header>
 
-<p>
-<strong>Tipo:</strong>
-{{ transaccion.tipo }}
-</p>
+      <ion-card-content>
 
-<p>
-<strong>Monto:</strong>
-${{ transaccion.monto }}
-</p>
+        <p>
+          <strong>Tipo:</strong>
+          {{ transaccion.tipo }}
+        </p>
 
-<p>
-<strong>Fecha:</strong>
-{{ transaccion.fecha | date:'mediumDate' }}
-</p>
+        <p>
+          <strong>Monto:</strong>
+          ${{ transaccion.monto }}
+        </p>
 
-<p>
-<strong>Descripción:</strong>
-{{ transaccion.descripcion || 'Sin descripción' }}
-</p>
+        <p>
+          <strong>Fecha:</strong>
+          {{ transaccion.fecha | date:'mediumDate' }}
+        </p>
 
-</ion-card-content>
+        <p>
+          <strong>Descripción:</strong>
+          {{ transaccion.descripcion || 'Sin descripción' }}
+        </p>
 
-</ion-card>
+      </ion-card-content>
 
-<!-- Foto comprobante -->
+    </ion-card>
 
-<ion-card *ngIf="transaccion.foto">
 
-<app-photo-preview
-[src]="transaccion.foto"
-size="large"
-(photoClick)="abrirFoto()">
-</app-photo-preview>
+    <!-- Foto comprobante -->
+    <ion-card *ngIf="transaccion.foto" class="photo-card">
 
-</ion-card>
+      <app-photo-preview
+        [src]="transaccion.foto"
+        size="large"
+        (photoClick)="abrirFoto()">
+      </app-photo-preview>
 
-<!-- Botones -->
+    </ion-card>
 
-<ion-button expand="block" color="primary" (click)="editar()">
-Editar
-</ion-button>
 
-<ion-button expand="block" color="danger" (click)="eliminar()">
-Eliminar
-</ion-button>
+    <!-- Botones -->
+    <div class="btn-group">
+
+      <ion-button expand="block" class="btn-edit" (click)="editar()">
+        Editar
+      </ion-button>
+
+      <ion-button expand="block" class="btn-delete" (click)="eliminar()">
+        Eliminar
+      </ion-button>
+
+    </div>
+
+  </div>
 
 </ion-content>

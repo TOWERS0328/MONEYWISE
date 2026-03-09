@@ -1,16 +1,63 @@
-.photo-container{
+// VARIABLES NEÓN
+$neon-green: #39FF14;
+$bg-black: #000000;
 
-display:flex;
-justify-content:center;
-align-items:center;
-background:black;
+.gallery-header {
+  ion-toolbar {
+    --background: rgba(0, 0, 0, 0.7);
+    --color: white;
+    --border-width: 0;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); // Fix para Android/iOS
+  }
 
+  ion-title {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
 
-img{
+.close-btn {
+  --color: #{$neon-green};
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  --ripple-color: #{$neon-green};
 
-width:100%;
-max-height:90vh;
-object-fit:contain;
+  // Efecto de brillo en el texto
+  text-shadow: 0 0 8px rgba($neon-green, 0.5);
+}
 
+.photo-container {
+  --background: #{$bg-black};
+
+  .photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    gap: 20px;
+    padding: 20px 0;
+  }
+}
+
+.gallery-img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+
+  // Marco neón sutil para la foto
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+
+  // Animación de entrada
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

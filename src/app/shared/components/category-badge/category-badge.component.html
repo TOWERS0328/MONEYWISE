@@ -1,11 +1,12 @@
 <ion-badge
-class="category-badge"
-[ngStyle]="{'background': (categoria | categoryColor)}">
-
-<ion-text>
-
-{{ categoria }}
-
-</ion-text>
-
+  class="category-badge"
+  [style.--color-temp]="categoria | categoryColor"
+  [ngStyle]="{
+    'background': 'rgba(0,0,0,0.3)',
+    'border-color': (categoria | categoryColor),
+    'box-shadow': '0 0 10px ' + (categoria | categoryColor) + '44'
+  }">
+  <ion-text>
+    {{ categoria }}
+  </ion-text>
 </ion-badge>

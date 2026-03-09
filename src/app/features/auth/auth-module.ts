@@ -10,7 +10,7 @@ import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
-    LoginPage,
+   LoginPage,
     RegisterPage
   ],
   imports: [

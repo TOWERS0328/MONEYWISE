@@ -1,0 +1,74 @@
+// VARIABLES NEÓN
+$neon-green: #39FF14;
+$neon-red: #ff3131;
+$surface: rgba(255, 255, 255, 0.05);
+$border-color: rgba(255, 255, 255, 0.1);
+
+ion-card {
+  background: $surface;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin: 10px 0;
+}
+
+ion-card-title {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+// Contenedor de la imagen previa
+.photo-preview-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba($neon-green, 0.3);
+  box-shadow: 0 0 15px rgba($neon-green, 0.1);
+  margin-bottom: 15px;
+
+  img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+}
+
+// BOTONES NEÓN
+ion-button {
+  --border-radius: 12px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+
+  // Botón Principal (Tomar Foto)
+  &[expand="block"]:not([fill="outline"]):not([color="danger"]) {
+    --background: #{$neon-green};
+    --color: #000000;
+    box-shadow: 0 4px 15px rgba(57, 255, 20, 0.3);
+  }
+
+  // Botón Galería (Outline)
+  &[fill="outline"] {
+    --color: #{$neon-green};
+    --border-color: #{$neon-green};
+    --border-width: 1px;
+    text-shadow: 0 0 5px rgba($neon-green, 0.3);
+  }
+
+  // Botón Eliminar
+  &[color="danger"] {
+    --background: rgba($neon-red, 0.1);
+    --color: #{$neon-red};
+    --border-color: #{$neon-red};
+    --border-width: 1px;
+    margin-top: 15px;
+    font-size: 12px;
+  }
+}

@@ -1,28 +1,57 @@
-.categoria-item{
+// VARIABLES NEÓN
+$neon-green: #39FF14;
+$neon-green-glow: rgba(57, 255, 20, 0.3);
+$text-dim: rgba(255, 255, 255, 0.6);
 
-  --padding-start:0;
-  --inner-padding-end:0;
-  margin-bottom:14px;
-
+.categoria-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 18px; // Un poco más de aire entre categorías
+  background: transparent;
 }
 
-.categoria-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:6px;
+.categoria-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; // Alineación a la base del texto
+  margin-bottom: 8px;
+  padding: 0 4px;
 }
 
-.categoria-nombre{
-  font-size:14px;
+.categoria-nombre {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ffffff;
 }
 
-.categoria-monto{
-  font-size:13px;
+.categoria-monto {
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace; // Toque de terminal financiera
+  font-weight: 600;
+  color: $neon-green;
+  text-shadow: 0 0 8px rgba($neon-green, 0.4);
 }
 
-ion-progress-bar{
-  height:10px;
-  border-radius:10px;
+/* BARRA DE PROGRESO NEÓN */
+ion-progress-bar {
+  height: 8px;
+  border-radius: 10px;
+  --background: rgba(255, 255, 255, 0.05); // Fondo de la barra casi invisible
+  --progress-background: linear-gradient(90deg, #1a8c34 0%, #{$neon-green} 100%);
 
+  // Efecto de resplandor
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+
+  /* Sombra interna para profundidad */
+  &::part(track) {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  &::part(progress) {
+    border-radius: 10px;
+    box-shadow: 0 0 10px $neon-green-glow;
+  }
 }

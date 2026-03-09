@@ -1,98 +1,335 @@
-.dashboard-container {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+// VARIABLES
 
-.cards-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
+$bg: #0d1117;
 
-.dashboard-card {
-  border-radius: 16px;
-  padding: 16px;
-  color: white;
+$surface: rgba(255, 255, 255, 0.04);
 
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    opacity: 0.85;
-    margin-bottom: 8px;
+$border: rgba(255, 255, 255, 0.08);
 
-    ion-icon { font-size: 1.1rem; }
+$green: #2ac64c;
+
+$green-dark: #1a8c34;
+
+$green-glow: rgba(42, 198, 76, 0.25);
+
+$text: #ffffff;
+
+$text-muted: rgba(255, 255, 255, 0.45);
+
+
+
+.dashboard-header {
+
+  // Importante: El contenedor debe ser transparente
+
+  --background: transparent;
+
+
+
+  ion-toolbar {
+
+    /* Color oscuro con 70% de opacidad */
+
+    --background: rgba(13, 17, 23, 0.7);
+
+
+
+    /* Soporte para navegadores antiguos y Chrome en Android */
+
+    -webkit-backdrop-filter: blur(12px);
+
+    backdrop-filter: blur(12px);
+
+
+
+    /* Borde sutil para resaltar el efecto cristal */
+
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+
   }
+
+
+
+
+
+  .dashboard-title {
+
+    font-family: 'Georgia', serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: $text;
+
+  }
+
+  .logout-btn {
+
+    --color: #{$text-muted};
+
+    --background: #{$surface};
+
+    --border-radius: 10px;
+
+    width: 38px;
+
+    height: 38px;
+
+  }
+
+}
+
+
+
+.dashboard-content {
+
+  --background: #{$bg};
+
+  --color: #{$text};
+
+  font-family: 'DM Sans', sans-serif;
+
+}
+
+
+
+.dashboard-container {
+
+  position: relative;
+
+  z-index: 10; // Aseguramos que esté por encima del fondo
+
+  padding: 10px 16px 40px; // Ajustado para móviles
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-height: 101%; // Truco para asegurar que el scroll de Ionic siempre se active
+
+}
+
+
+
+// TARJETA DE CATEGORÍAS
+
+.category-card {
+
+  background: $surface;
+
+  border: 1px solid $border;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+
 
   h2 {
-    font-size: 1.6rem;
+
+    font-family: 'Georgia', serif;
+
+    font-size: 18px;
+
     font-weight: 700;
-    margin: 0;
-    &.negativo { color: #ffcccc; }
+
+    color: $text;
+
+    margin: 0 0 12px 0; // Margen reducido
+
   }
 
-  &.saldo    { background: linear-gradient(135deg, #667eea, #764ba2); }
-  &.ingresos { background: linear-gradient(135deg, #2ac64c, #20a03c); }
-  &.gastos   { background: linear-gradient(135deg, #ff3b3b, #c0392b); }
 }
 
-.dashboard-chart {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 
-  h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 12px 0;
-    color: var(--ion-color-dark);
-  }
-}
 
-.chart-wrap {
+.chart-container {
+
+  width: 100%;
+
   max-width: 280px;
-  margin: 0 auto;
+
+  margin: 0 auto 15px; // Centrado con margen inferior
+
+  display: block;
+
 }
 
-.categoria-item {
-  margin-bottom: 12px;
 
-  .cat-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4px;
 
-    .cat-nombre {
-      font-size: 0.85rem;
-      color: var(--ion-color-dark);
-    }
-    .cat-monto {
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-  }
+.category-list {
 
-  ion-progress-bar {
-    height: 8px;
-    border-radius: 4px;
-  }
+  display: flex;
 
-  .cat-pct {
-    font-size: 0.75rem;
-    color: var(--ion-color-medium);
-    display: block;
-    text-align: right;
-    margin-top: 2px;
-  }
-  ion-fab {
-  z-index: 999 !important;
+  flex-direction: column;
+
+  gap: 12px;
+
 }
 
-ion-fab-button {
-  z-index: 999 !important;
+
+
+.category-item {
+
+  display: flex;
+
+  flex-direction: column;
+
 }
+
+
+
+.category-info {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+
+  font-size: 14px;
+
+}
+
+
+
+.category-left {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+
+
+.category-icon {
+
+  font-size: 18px;
+
+  color: $green;
+
+}
+
+
+
+.category-value {
+
+  font-weight: 600;
+
+}
+
+
+
+.progress-bar {
+
+  width: 100%;
+
+  height: 6px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+}
+
+
+
+.progress-fill {
+
+  height: 100%;
+
+  background: linear-gradient(90deg, $green, #45d16b);
+
+  transition: width 0.5s ease-in-out;
+
+}
+
+
+
+// OTROS ESTILOS
+
+.cards-row {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+}
+
+
+
+app-dashboard-card {
+
+  display: block;
+
+  ::ng-deep .card {
+
+    background: $surface !important;
+
+    border: 1px solid $border !important;
+
+    border-radius: 24px !important;
+
+  }
+
+}
+
+
+
+// FONDO ANIMADO - CORREGIDO
+
+.bg-layer {
+
+  position: fixed; // Cambiado a fixed para que no se mueva al hacer scroll
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  pointer-events: none; // Esto evita que atrape los clics
+
+  z-index: -1; // Esto lo manda al fondo real, detrás de todo
+
+  overflow: hidden;
+
+}
+
+
+
+.bg-circle {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  opacity: 0.15; // Un poco más visible para el estilo neón
+
+  pointer-events: none;
+
+
+
+  &.c1 { width: 300px; height: 300px; background: $green; top: -50px; right: -50px; }
+
+  &.c2 { width: 250px; height: 250px; background: $green-dark; bottom: 100px; left: -50px; }
+
+  &.c3 { width: 150px; height: 150px; background: #3fcc5e; top: 40%; right: -20px; }
+
 }

@@ -1,13 +1,56 @@
+// DEFINICIÓN DE COLORES NEÓN VIBRANTES
+$neon-green: #39FF14;
+$neon-red: #FF3131;
+$neon-neutral: #E0E0E0;
+
+ion-text {
+  display: inline-block;
+  transition: all 0.3s ease;
+
+  // SOBREESCRIBIMOS LOS COLORES NATIVOS DE IONIC
+  &[color="success"] {
+    color: $neon-green !important;
+    text-shadow: 0 0 10px rgba($neon-green, 0.4);
+  }
+
+  &[color="danger"] {
+    color: $neon-red !important;
+    text-shadow: 0 0 10px rgba($neon-red, 0.4);
+  }
+
+  &[color="medium"] {
+    color: $neon-neutral !important;
+    opacity: 0.8;
+  }
+}
+
+// TIPOGRAFÍA POR TAMAÑOS
 .small {
   font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .medium {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace; // Estilo datos financieros
+  letter-spacing: 0.5px;
 }
 
 .large {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px; // Un poco más grande para impacto
+  font-weight: 800;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -1px; // Estilo "Display" apretado
+}
+
+/* Efecto de pulso suave para los ingresos (Opcional) */
+[color="success"] .large {
+  animation: subtle-glow 3s infinite alternate;
+}
+
+@keyframes subtle-glow {
+  from { text-shadow: 0 0 8px rgba($neon-green, 0.4); }
+  to { text-shadow: 0 0 15px rgba($neon-green, 0.7); }
 }

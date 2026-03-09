@@ -1,0 +1,71 @@
+// VARIABLES NEÓN
+$neon-green: #39FF14;
+$input-bg: rgba(0, 0, 0, 0.2);
+$border-color: rgba(255, 255, 255, 0.08);
+
+ion-item {
+  --background: #{$input-bg};
+  --color: #ffffff;
+  --border-radius: 12px;
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+
+  border: 1px solid $border-color;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+
+  // Brillo si hay un error
+  &.item-has-error {
+    border-color: #ff4961;
+    box-shadow: 0 0 10px rgba(255, 73, 97, 0.2);
+  }
+
+  // Estilo de la Etiqueta (Label)
+  ion-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  // Estilo del Selector
+  ion-select {
+    --placeholder-color: rgba(255, 255, 255, 0.3);
+    --placeholder-opacity: 1;
+    font-weight: 600;
+    color: $neon-green; // El valor seleccionado resalta en verde
+
+    // Icono de la flecha
+    &::part(icon) {
+      color: $neon-green;
+      opacity: 0.8;
+    }
+  }
+}
+
+// Nota de error neón rojo
+ion-note {
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 14px;
+  margin-top: 4px;
+  display: block;
+  text-shadow: 0 0 5px rgba(255, 73, 97, 0.4);
+}
+
+// ESTILO PARA LA VENTANA EMERGENTE (Pop-up)
+// Esto va en global.scss porque el pop-up vive fuera del componente
+.select-interface-option {
+  --background: #161b22;
+  --color: #ffffff;
+
+  .select-interface-option-label {
+    font-weight: 500;
+  }
+
+  &[aria-checked="true"] {
+    --color: #{$neon-green};
+    background: rgba($neon-green, 0.05);
+  }
+}

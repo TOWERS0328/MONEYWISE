@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetalleTransaccionPage } from './detalle-transaccion/detalle-transaccion.page';
-import { ListaTransaccionesPage } from './lista-transacciones/lista-transacciones.page';
+// ❌ Eliminar import de ListaTransaccionesPage
 
 const routes: Routes = [
   {
     path: '',
-    component: ListaTransaccionesPage
+    loadChildren: () => import('./lista-transacciones/lista-transacciones.module')
+      .then(m => m.ListaTransaccionesPageModule) // ← LAZY LOADING
   },
   {
     path: 'detalle/:id',
